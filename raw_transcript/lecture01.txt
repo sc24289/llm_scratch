@@ -1,0 +1,769 @@
+0:00
+[Music]
+0:05
+hello everyone welcome to the
+0:07
+introductory lecture in this series
+0:10
+which is titled build a large language
+0:12
+model from scratch my name is Dr Raj
+0:16
+dander I graduated from IIT Madras with
+0:19
+a bch in mechanical engineering in
+0:22
+2017 after that I did my PhD from the
+0:26
+Massachusetts Institute of Technology
+0:29
+MIT I graduated from MIT with a PhD in
+0:33
+machine learning in
+0:35
+2022 since then I've come back to India
+0:38
+and we are all on a mission to basically
+0:42
+make AI accessible to everyone U at viua
+0:46
+which is our YouTube channel we have
+0:48
+made several playlists now on machine
+0:51
+learning on deep learning and uh the
+0:54
+main approach or the philosophy which we
+0:57
+really follow when we teach is to teach
+0:59
+everything from from the basics not to
+1:01
+assume anything teach you the nuts and
+1:04
+bolts of every single
+1:08
+concept the real reason behind this
+1:11
+series is that as we all know large
+1:13
+language models and generative AI are
+1:16
+transforming everything around us
+1:19
+startups are forming in this space
+1:21
+companies are switching to large
+1:23
+language models for various tasks the
+1:25
+jobs in this field are rising a lot but
+1:28
+many people when they are learning
+1:29
+learning about this field are making one
+1:31
+common mistake they directly switch to
+1:34
+the applications they directly run some
+1:36
+Google collab notebook they follow some
+1:39
+YouTube video and directly run a
+1:41
+code uh but very few people really
+1:45
+understand how large language models
+1:48
+actually
+1:49
+work very few people actually know the
+1:52
+nuts and the bolds which make large
+1:55
+language models really so powerful
+1:59
+wouldn't be it amazing if you can build
+2:02
+a large language model completely from
+2:07
+scratch wouldn't that make you feel very
+2:10
+confident about this subject very few
+2:13
+people have this knowledge right now and
+2:15
+I'm making this YouTube playlist which
+2:17
+will be a very comprehensive playlist
+2:19
+showing you everything about building an
+2:22
+llm from
+2:24
+scratch the way I'm making this playlist
+2:26
+or the way I will make videos in this
+2:28
+playlist is to teach te you everything
+2:30
+from the basics as a beginner without
+2:33
+assuming anything and at the end of this
+2:35
+playlist you will have built an llm from
+2:37
+scratch successfully all by yourself
+2:41
+you'll see that after this point
+2:43
+everything which comes later all the
+2:44
+application Parts everything will just
+2:46
+start seeming extremely easy to
+2:49
+you so that's the whole philosophy
+2:52
+behind making this lecture series it
+2:55
+takes a huge amount of effort on our
+2:57
+part to make this series because as you
+2:59
+you will see and I'll show you in some
+3:01
+time to make every lecture we are going
+3:03
+to make detailed lecture notes I'll
+3:06
+share those lecture notes with you and
+3:08
+all the videos in this series will be
+3:10
+available completely for
+3:12
+free okay so now I'm going to tell you a
+3:16
+bit about my story of learning llms then
+3:19
+I'm going to tell you a bit about what
+3:21
+exists right now the material which is
+3:23
+already available on the internet for
+3:26
+learning llms why it is so inadequate
+3:29
+why it is so insufficient and what we
+3:31
+are trying to do new with this playlist
+3:34
+so let's get into the video so let me
+Demonstration
+3:36
+take you back in time a bit to show you
+3:39
+how large language models looked like in
+3:43
+maybe
+3:44
+1960s uh or where the field of natural
+3:47
+language processing was really about 50
+3:50
+to 60 years back so this is one of the
+3:52
+first chat Bots which humans developed
+3:55
+it's called as Elisa it was supposed to
+3:57
+be a therapist and let's see how it
+4:00
+works so first this interface asks me to
+4:03
+choose my language so I'm choosing
+4:05
+English let's
+4:09
+go so then Elisa tells me how do you do
+4:12
+please tell me your problem so then let
+4:14
+me type I am trying to learn about large
+4:21
+language
+4:23
+models but I am finding it
+4:28
+difficult could you
+4:30
+provide some
+4:33
+resources for me to start
+4:42
+with then Elisa asks is it because
+4:45
+you're trying to learn about large
+4:47
+language models that you came to me then
+4:49
+I say
+4:51
+yes and then Alisa says You seem to be
+4:54
+quite positive and then and then Elisa
+4:58
+says you are sure you see this
+5:00
+conversation is proceeding nowhere this
+5:03
+was the state of large language models
+5:05
+50 to 60 years 50 to 60 years back it's
+5:09
+not very good right fast forward to chat
+5:11
+GPT and you
+5:14
+ask what are large language
+5:17
+models or let me ask the same thing
+5:19
+which I asked over
+5:21
+here I am trying to learn about large
+5:26
+language
+5:28
+models tell me me some
+5:31
+resources and then you'll see the
+5:34
+response by chat GPT it's extremely
+5:36
+useful it's to the point and uh it gives
+5:40
+me books it gives me online courses it
+5:43
+gives me research papers this is exactly
+5:46
+what I need so you see this simple
+5:49
+illustration shows that we are living in
+5:51
+an age where we should be very lucky
+5:54
+that the research on natural language
+5:56
+processing and large language models is
+5:59
+at such a
+6:00
+stage
+6:03
+where llm such as GPT are very powerful
+6:07
+they are very
+6:10
+sophisticated if you're not familiar
+6:12
+with chat GPT that's fine we are going
+6:13
+to be building our own GPD in this
+6:16
+playlist so you'll learn about it along
+6:19
+the way but I showed you this
+6:22
+demonstration for you to appreciate the
+6:24
+times we are living in right now llms
+6:27
+have become really powerful and uh
+6:30
+that's the first motivation to really
+6:31
+learn about them there are several more
+Open Source vs Closed Source
+6:34
+things which are happening as I'm making
+6:36
+this video Facebook released their Lama
+6:40
+3.1 which is one of their most capable
+6:42
+large language models up till date and
+6:45
+this is an open-source model which means
+6:47
+that the entire architecture of the
+6:49
+model is available for free uh or rather
+6:52
+it's available to the public anyone can
+6:54
+see the architecture the models released
+6:57
+by open AI are usually closed source
+7:00
+which means they don't release the
+7:02
+weights uh the architecture not too many
+7:05
+things are known about the model itself
+7:08
+so here is a graph which shows closed
+7:10
+Source versus open source models in 2022
+7:13
+when the field of large language models
+7:15
+was booming most of the things were
+7:17
+pretty closed Source when gp4 was
+7:19
+released in 2023 it blew the world uh
+7:23
+away everyone was surprised everyone was
+7:26
+happy to see the functionality but still
+7:28
+it was a closed Source model now in
+7:31
+2024 can you see the gap between the
+7:34
+open source and closed Source model is
+7:36
+slowly decreasing and when Lama 3.1 is
+7:39
+released you can see that it performs at
+7:41
+the same level as gp4 which is closed
+7:45
+Source this is to say that all the
+7:47
+information which you need is available
+7:49
+right now as open source models you
+7:52
+should just be willing to learn if you
+7:54
+are not sure what's open source close
+7:56
+Source models what's this Lama 340 5B
+8:00
+I'll explain to you about all of these
+8:02
+things as we proceed with the
+8:06
+lectures Now text is one thing right
+What is generative AI
+8:09
+there are many other things which
+8:10
+generative AI as a field is capable of
+8:13
+there is also a lot of confusion with
+8:15
+many people regarding what is generative
+8:17
+AI what are llms really but generative
+8:20
+AI is a broader subset and it includes
+8:23
+language it includes video audio 3D
+8:26
+models all the things so have a look at
+8:29
+some of these
+8:31
+videos don't these videos look
+8:34
+incredibly realistic this video then
+8:36
+this video The Waves video this
+8:39
+particular video you'll be surprised to
+8:42
+know that all of these videos are made
+8:44
+by artificial intelligence these videos
+8:47
+are not shot on camera they are made by
+8:50
+AI this is the power of generative AI
+8:54
+currently finally uh when we work with
+8:57
+schools we have developed our own a
+8:59
+application so this is viu's AI
+9:02
+application uh or application on llms
+9:06
+here you can see that there are a huge
+9:08
+number of functionalities for example
+9:09
+you can click on McQ generator and you
+9:12
+can just type in the topic let's say
+9:15
+gravity and you can click on generate
+9:18
+now you'll see that within a matter of
+9:20
+seconds the large language model which
+9:22
+is powering this application will
+9:24
+generate a set of multiple choice
+9:26
+questions see right here we are
+9:28
+providing this application to teachers
+9:31
+all of this was impossible to even
+9:33
+imagine uh just four to 5 years back but
+9:36
+now large language models and generative
+9:38
+AI are changing every single thing
+9:40
+around us in fact what is probably more
+9:43
+relevant to all of you watching this
+9:45
+video is the global generative AI job
+9:47
+market and just look at this growth it's
+9:50
+incredible uh and this is the pro
+9:53
+projected job market it's expected to
+9:55
+grow about five to six times in the next
+9:57
+5 years generate and large language
+10:00
+models is an extremely useful skill and
+10:03
+the need for this skill is only going to
+10:06
+increase in the future so this again
+10:09
+brings me to the question that if
+10:11
+someone wants to learn about large
+10:12
+language models how do they go about
+10:15
+doing this so let's say you go to Google
+10:18
+and you search build llms learn which
+10:20
+say which means you want to learn about
+10:22
+large language models there are a number
+10:24
+of courses which show up really over
+10:26
+here now if you go to many of these
+10:28
+courses you will see let let say build
+10:29
+llm apps it's about app development it
+10:32
+does not teach you how to build a large
+10:33
+language model from
+10:35
+scratch here is another course Master SL
+10:38
+Master large language model Concepts if
+10:40
+you look at this course description
+10:42
+right they don't teach you how to build
+10:44
+an llm from scratch at all they don't
+10:46
+teach you the nuts and bolts it's a
+10:47
+pretty quick course this is also not
+10:50
+what I'm looking for what I'm looking
+10:52
+for is one course which teaches me the
+10:54
+foundations in a lot of detail and in a
+10:56
+lot of depth I want to know about the
+10:59
+foundations because I want to build an
+11:00
+llm from scratch so that uh my skill set
+11:04
+is improved and so that I feel confident
+11:07
+about giving generative Ai and even llm
+11:10
+job interviews this is what I'm looking
+11:12
+for really I don't want a quick crash
+11:14
+course I want something in
+11:16
+depth then I go to YouTube and search
+11:18
+about llm from scratch this is the first
+11:21
+video which shows up or rather it's a
+11:23
+first playlist you'll see that there are
+11:25
+18 chapters in this playlist but each of
+11:28
+these chapters is again only 10 15
+11:29
+minutes and again I'm a bit demotivated
+11:32
+seeing this because I'm not looking for
+11:34
+this either I'm looking for a massive
+11:37
+deep technical course which teaches me
+11:39
+how to build an llm right from the very
+11:41
+Basics there is Andre karpat is building
+11:44
+a GPT course but if you look at this
+11:46
+course it's actually quite complex it's
+11:48
+not an easy course at all he starts
+11:50
+right in the middle of uh a concept and
+11:54
+it's not meant for beginners and it's
+11:56
+just 90 minutes again this is not what
+11:58
+I'm looking for here is another create a
+12:00
+large language model from scratch but
+12:02
+you see the red bar here I tried taking
+12:04
+this course and I finished three hours
+12:06
+of this but again this is not explained
+12:08
+well it's not explained from scratch I
+12:11
+want to make a course which people
+12:13
+understand right from the very Basics
+12:15
+and none of the courses on YouTube on
+12:18
+Google are satisfying that need luckily
+12:21
+very luckily I came across this book by
+12:23
+an author called Sebastian rashka I
+12:26
+think it's one of the best books on
+12:27
+large language models I purchased this
+12:30
+book and this is going to serve as the
+12:32
+reference material for our course what
+12:35
+I'm going to do is that this is a 48
+12:37
+page book I'm going to convert every
+12:39
+single aspect of this book into a set of
+12:42
+videos I'll probably have 35 40 or maybe
+12:45
+50 videos in this playlist similar to my
+12:48
+playlist for machine learning and deep
+12:50
+learning and uh whatever is given here
+12:53
+right I'll convert it into
+12:56
+uh I'll convert it into video format
+12:59
+so for example here are some of the
+13:01
+notes which I've already started to make
+13:03
+we'll we'll start covering this when we
+13:05
+move to uh the next lecture look at
+13:08
+these notes what I've done over here is
+13:10
+that I have built my understanding from
+13:12
+this book over here and to to transfer
+13:16
+my understanding to all of you I have
+13:18
+started writing on a white board every
+13:19
+single thing in detail look at this and
+13:22
+I'm trying to make it as interesting as
+13:24
+possible and as fundamental as possible
+13:26
+so this is going to be the next lecture
+13:29
+uh intro to llms so I finished making
+13:32
+the notes for this and I finished making
+13:33
+the notes for the lecture after that as
+13:36
+well stages of building and llm so
+13:38
+basically I'm making I'm in the process
+13:40
+of making all these notes but I'm making
+13:43
+the videos simultaneously so that I am
+13:45
+also motivated and I am also on track
+13:47
+eventually this will be a massive
+13:49
+lecture notes of maybe 200 to 300 pages
+13:52
+and uh there will be 50 to 60 videos
+13:56
+based on this you'll learn everything
+13:58
+right from the very Basics nothing will
+13:59
+be assumed everything will be spelled
+14:02
+out and these set of videos will be
+14:04
+perfect for serious people who want to
+14:06
+transition to large language models
+14:08
+really and we want to understand llms
+14:10
+the right
+14:12
+way uh okay so this is the main idea for
+14:16
+the course another thing which I want to
+14:18
+say is that you might have heard of
+14:20
+applications like Lang chain this is a
+14:22
+tool which helps you build llm apps but
+14:25
+again it's not useful if you don't know
+14:27
+how to build an llm yourself many
+14:29
+students directly start deploying apps
+14:31
+as I mentioned before but I personally
+14:33
+don't think that's the right way to
+14:35
+learn about llms you need to know how to
+14:37
+build a entire large language model from
+14:39
+scratch and we'll teach you that in this
+14:42
+playlist finally the goal is to equip
+14:45
+all of you so that you feel confident in
+14:47
+front of an interviewer right if you
+14:49
+have just deployed applications by
+14:51
+cloning some GitHub repository then if
+14:53
+someone asks you a detailed question
+14:55
+about key query and values let's say or
+14:57
+positional embedding or positional
+14:59
+positional encoding you need to be in a
+15:01
+position to say that I have built this
+15:03
+from scratch so I know the details
+15:05
+better than anyone
+15:06
+else that's really going to position you
+15:10
+in a different boot than all the other
+15:12
+people so this is the main objective of
+15:15
+this course this is going to be the
+15:16
+outline of this course we are going to
+15:18
+follow uh all the top table of contents
+15:22
+which have been mentioned over here and
+15:24
+I'm going to convert those into video
+15:26
+lecture formats and it's going to be an
+15:28
+awesome series it's going to be a
+15:29
+detailed Series so if this seems of
+15:32
+interest to you please uh mention in the
+15:35
+comments so that I also feel motivated
+15:37
+to build subsequent videos and as I
+15:39
+mentioned the plan is to release
+15:41
+everything all of this content
+15:43
+completely for free so that you all can
+15:45
+benefit from
+15:47
+it okay thank you so much everyone uh
+15:50
+and I look forward to seeing you in the
+15:51
+next lecture where we will cover
+15:53
+introduction to large language models
+15:55
+and we'll cover all these things what
+15:58
+you are seeing in the board right now
+16:00
+thanks everyone see you in the next
+16:01
+lecture
